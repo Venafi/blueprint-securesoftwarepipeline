@@ -26,13 +26,13 @@ The Blueprint is designed to engineer out the attacker so developers and their a
 
 We base our approach on the following design philosophy:  
 
-  - Least Privilege - grant only the access and permissions required to accomplish a job, and no more. 
+  - _Least Privilege_ - grant only the access and permissions required to accomplish a job, and no more. 
 
-  - Immutability - Artifacts and infrastructure are not modified after deployment to an environment. If a change is required, it is done in the image or script in the development environment and then promoted through the higher environments. 
+  - _Immutability_ - Artifacts and infrastructure are not modified after deployment to an environment. If a change is required, it is done in the image or script in the development environment and then promoted through the higher environments. 
 
-  - Everything as Code - Not only software artifacts, but infrastructure, security policies, and other parts of the pipeline are implemented as code and subject to the same controls as the software artifacts. 
+  - _Everything as Code_ - Not only software artifacts, but infrastructure, security policies, and other parts of the pipeline are implemented as code and subject to the same controls as the software artifacts. 
 
-- Traceability – All changes whether to infrastructure or business code is revision controlled. This principle works hand in hand with Everything as Code. 
+  - _Traceability_ – All changes whether to infrastructure or business code is revision controlled. This principle works hand in hand with Everything as Code. 
 
  The design is pragmatic. Security controls will not be implemented or will be routed around if they prove an impediment to the timely delivery of new software. The Blueprint is developer friendly and low friction that improves the quality and assurance of the software that runs the modern world.
 
@@ -40,13 +40,13 @@ We base our approach on the following design philosophy:
 
 The blueprint for engineered assured software is designed on 4 stages of software development pipelines:
 
-1. Code: developers design software and commit code to code repositories  
+1. _Code_: developers design software and commit code to code repositories  
 
-1. Collaborate: developers include external and internal libraries and share software for review  
+1. _Collaborate_: developers include external and internal libraries and share software for review  
 
-1. Staging: software is built and prepared for final delivery  
+1. _Staging_: software is built and prepared for final delivery  
 
-1. Production: software is run anywhere
+1. _Production_: software is run anywhere
 
 ### Blueprint in action 
 
@@ -60,25 +60,29 @@ It is important to ensure that only authorized persons may make administrative c
 
 Both host and application-layer access to CI/CD tools should be protected with multi-factor authentication.
 
-> :skull: Instead of manipulating code, attackers will seek to control the CI/CD pipeline itself. This can enable both breach without detection and long-term impact far greater than manipulating code. Attackers seek to introduce new pipelines inserting malicious code or modify pipelines that introduce controls like code signing.
+> :skull: 
+> Instead of manipulating code, attackers will seek to control the CI/CD pipeline itself. This can enable both breach without detection and long-term impact far greater than manipulating code. Attackers seek to introduce new pipelines inserting malicious code or modify pipelines that introduce controls like code signing.
 
 #### Control-2: Accept only commits signed with developer GPG key
 
 Unsigned code commits are challenging if not impossible to trace and pose a risk to the integrity of the code base. Requiring commits to be signed with a developer GPG key helps to ensure nonrepudiation of commits and increases the burden on the attacker seeking to insert malicious code.
 
-> :skull: An easy win for attackers can be to infect developers’ machines or steal credentials that give access. Attackers can then manipulate code or inject new malicious code as they please. 
+> :skull: 
+> An easy win for attackers can be to infect developers’ machines or steal credentials that give access. Attackers can then manipulate code or inject new malicious code as they please. 
 
 #### Control-3: Automation access keys expire automatically
 
 Ensuring that access keys used by automation periodically expire ensures a shorter window of attack should keys be compromised.
 
-> :skull: Automated build systems are a hacker’s dream: they are out of sight of humans and operate at machine speed. Attackers can either steal access keys or mint new ones through a series of attacks. These are especially hard to detect. 
+> :skull: 
+> Automated build systems are a hacker’s dream: they are out of sight of humans and operate at machine speed. Attackers can either steal access keys or mint new ones through a series of attacks. These are especially hard to detect. 
 
 #### Control-4: Reduce automation access to read only.
 
 CI systems should only have read access to source code repositories following the principle of least privilege access.
 
-> :skull: Automated build processes are a hacker’s dream: they are out of sight of humans and operate at machine speed. Attackers can bypass usual source code review process to make changes to the source code that may be hard to detect. 
+> :skull: 
+> Automated build processes are a hacker’s dream: they are out of sight of humans and operate at machine speed. Attackers can bypass usual source code review process to make changes to the source code that may be hard to detect. 
 
 #### Control-5: Only dependencies from trusted registries can be used
 
@@ -88,7 +92,8 @@ The trusted repository can also ensure that security policies are enforced on de
 
 Teams should be aware of implicit runtime dependencies as well as explicit buildtime dependencies (see Control 14).
 
->  :skull: Attackers can quickly spread malicious code through dependencies.  Attackers may insert malicious code that is then incorporated the application’s manifest by stealing credentials en masse or sophisticated, targeted thefts.
+> :skull: 
+>  Attackers can quickly spread malicious code through dependencies.  Attackers may insert malicious code that is then incorporated the application’s manifest by stealing credentials en masse or sophisticated, targeted thefts.
 > Hackers can also target mistakes and oversights through typo-squatting and dependency confusion. Adversaries go to great ends to publish packages under a trusted name or even with common typos so they are included in builds.
 > All of the stakes are exponentially raised when public repositories are used.  
 
@@ -103,7 +108,8 @@ This control should be applied at various stages of the pipeline, including IDE-
 
 > _Additionally, this control would also need a defined and documented vulnerability exception management process to be in place._
 
-> :skull: Most often the result of unexpected consequences, vulnerabilities are a reality of developer life. Attackers too may contribute vulnerabilities that go unseen and undetected and can proliferate through a software supply chain quickly. 
+> :skull: 
+> Most often the result of unexpected consequences, vulnerabilities are a reality of developer life. Attackers too may contribute vulnerabilities that go unseen and undetected and can proliferate through a software supply chain quickly. 
 
 #### Control-7: Artifacts are stored in a repository in dev, stage and production
 
@@ -116,19 +122,22 @@ Artifacts should be promoted from repository to repository in accordance with th
 
 Before an artifact is deployed in any environment its digest should be validated against the artifact in the repository to ensure that it has not been compromised. 
 
-> :skull: At all times, attackers are attempting to infiltrate system and make modifications to code through any variety of means. Adversaries insert targeted attacks or common vulnerabilities to suit their needs unpredictable needs. 
+> :skull: 
+> At all times, attackers are attempting to infiltrate system and make modifications to code through any variety of means. Adversaries insert targeted attacks or common vulnerabilities to suit their needs unpredictable needs. 
 
 #### Control-9: Pull request requires two reviewers (including one default reviewer) and passing build to be merge
 
 Requiring two code reviews at pull request, including one from a developer who is an _owner_ of that code. In addition to supporting good coding practices it also ensures that no commits can be made without competent human oversight. Requiring that all tests are passed ensures that the above controls are not circumvented.
 
-> :skull: At all times, attackers are attempting to infiltrate system and make modifications to code through any variety of means. Adversaries insert targeted attacks or common vulnerabilities to suit their needs unpredictable needs. It cannot be assumed that the adversary is in fact a member of your own team.
+> :skull: 
+> At all times, attackers are attempting to infiltrate system and make modifications to code through any variety of means. Adversaries insert targeted attacks or common vulnerabilities to suit their needs unpredictable needs. It cannot be assumed that the adversary is in fact a member of your own team.
 
 #### Control-10: Artifacts in higher repositories are signed
 
 Requiring artifacts to be signed in a repository throughout the process ensures visibility and traceability for what is deployed to production. Requiring signed artifacts helps to ensure that untrusted binaries are not deployed to customer environments and allows validating the source of the binaries.
 
-> :skull: Through credential theft, vulnerability exploit, targeted attack or more, attackers succeed in insert their malicious code into pipeline and repositories. Code should be consider suspect and malicious.
+> :skull: 
+> Through credential theft, vulnerability exploit, targeted attack or more, attackers succeed in insert their malicious code into pipeline and repositories. Code should be consider suspect and malicious.
 
 #### Control-11: Available container images don’t have any high or critical vulnerabilities
 
@@ -142,13 +151,15 @@ Just as applications need to be tested for vulnerabilities before being placed i
 
 As part of deploying artifacts from the internal registry, validating the signature of the artifact against the digest ensures that the artifact was not tampered with in the repository and that the artifact being deployed is the same that was tested.
 
-> :skull: Through credential theft, vulnerability exploit, targeted attack or more, attackers succeed in insert their malicious code into pipeline and repositories. Code should be consider suspect and malicious.
+> :skull: 
+> Through credential theft, vulnerability exploit, targeted attack or more, attackers succeed in insert their malicious code into pipeline and repositories. Code should be consider suspect and malicious.
 
 #### Control-14: Scan deployed images in production
 
 It is always a good idea to validate pre-production controls in production. This helps to ensure that the controls prior were followed for all software in production.
 
-> :skull: At all times, attackers are attempting to infiltrate system and make modifications to code through any variety of means. Adversaries insert targeted attacks or common vulnerabilities to suit their needs unpredictable needs. It cannot be assumed that the adversary is in fact a member of your own team.
+> :skull: 
+> At all times, attackers are attempting to infiltrate system and make modifications to code through any variety of means. Adversaries insert targeted attacks or common vulnerabilities to suit their needs unpredictable needs. It cannot be assumed that the adversary is in fact a member of your own team.
 
 #### Control-15: Validate Kubernetes resource manifests
 
@@ -158,9 +169,11 @@ The last line of defense is the container orchestration layer. Kubernetes is res
 
 Build environments should be defined in code with automated creation / teardown and a fresh environment created for every build. Build hosts should not be accessible via interactive login.
 
-> :skull: Attackers who gain access to build environments are able to bypass controls implemented earlier in the build pipeline. Ensuring build environments are themselves defined as code and live only for the duration of a build will prevent attackers persisting in build infrastructure.
+> :skull: 
+> Attackers who gain access to build environments are able to bypass controls implemented earlier in the build pipeline. Ensuring build environments are themselves defined as code and live only for the duration of a build will prevent attackers persisting in build infrastructure.
  
 # Appendix A
+
 Intro..._state briefly what this appendix is for_
 
 |       | Blueprint Node | Threat | Control | Critical Services 
@@ -182,8 +195,6 @@ Intro..._state briefly what this appendix is for_
 | Production | 15 | Attackers target production conrfiguration | Runtime policy enforced | Container policy enforcement
 |            |    |  |  | 
 
-
-
 <!-- Playground...             
 
 First Header | Second Header 
@@ -191,7 +202,6 @@ First Header | Second Header
 content1     | Content2 
 content3     | Content4 
 -->
-
 
 # Appendix B
 
