@@ -60,7 +60,7 @@ It is important to ensure that only authorized persons may make administrative c
 
 Both host and application-layer access to CI/CD tools should be protected with multi-factor authentication.
 
-> Instead of manipulating code, attackers will seek to control the CI/CD pipeline itself. This can enable both breach without detection and long-term impact far greater than manipulating code. Attackers seek to introduce new pipelines inserting malicious code or modify pipelines that introduce controls like code signing.
+> :skull: Instead of manipulating code, attackers will seek to control the CI/CD pipeline itself. This can enable both breach without detection and long-term impact far greater than manipulating code. Attackers seek to introduce new pipelines inserting malicious code or modify pipelines that introduce controls like code signing.
 
 #### Control-2: Accept only commits signed with developer GPG key
 
