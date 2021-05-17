@@ -52,7 +52,7 @@ The blueprint for engineered assured software is designed on 4 stages of softwar
 
 The Blueprint is built to fit modern development pipelines where developers, pipelines, and execution can be anywhere in the world.
 
-![Blueprint for a modern development pipeline](/assets/images/dia-BlueprintForModernDevPipeline.png)
+![Blueprint for a modern development pipeline](dia-BlueprintForModernDevPipeline.png)
 
 #### Control-1: Restrict administrative access to CI/CD tools
 
