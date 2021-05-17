@@ -1,7 +1,7 @@
 # Blueprint for building modern, secure software development pipelines
-For engineers and security teams driving fast and secure software supply chains.
+_For engineers and security teams driving fast and secure software supply chains_
 
-This document was authored by Veracode and Venafi with the goal of defining a vendor neutral map of standard controls. We welcome contributions to the standard. 
+This document was authored by Veracode and Venafi with the goal of defining a vendor-neutral map of standard controls. We welcome contributions to the standard. 
 
 ## Audience + outcome
 
