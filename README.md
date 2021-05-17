@@ -163,37 +163,34 @@ Build environments should be defined in code with automated creation / teardown 
 # Appendix A
 Intro..._state briefly what this appendix is for_
 
-             | Blueprint Node | Threat | Control | Critical Services 
------------- | -------------
-Code         | 1 | Attacker privilege escalation | Restrict admin access to CI/CD tools | Zero trust access 
-             | 2 | Attacker submits malicious code | Accept only commits signed with unique identities | Code signing
-             | 3 | Attacker credential theft, escalation, or exploit to control CI/CD system | Automation access keys expires automatically | CI/CD policy control
-             | 4 | Attacker submits malicious code via CI/CD system | Automation read-only access to source code repo | CI/CD policy control 
-Collaboration| 5 | Vulnerability introduced from software supply chain | Only dependencies from trusted registries accepted | Enterprise artifact registry
-             | 6 | Vulnerability introduced from software supply chain | Vulnerability analysts rejects threats | Static Code Analysis Software Component Analysis 
-             | 7 | Attackers attempt to manipulate code directly | Artifact repository restrictions | Enterprise artifact registry (including Containers) 
-             | 8 | Attackers successfully manipulate code directly | Validate approved artifacts | Code signing CI/CD policy control 
-             | 9 | Attackers successfully manipulate code directly | Dual approval controls | Source code revision system 
-Staging      | 10 | Attackers target to manipulate code on staging | Only signed code accepted for staging | Enterprise artifact registry (including Containers) 
-Code Signing
-             | 11 | Attackers target to manipulate code moving to production | Only signed code accepted for production | Enterprise artifact registry (including Containers) Code Signing
-             | 12 | Attackers target to manipulate code moving to production | Containers scanned before production | Container Security Scan
-             | 13 | Attackers target to manipulate code moving to production | Only signed code accepted for production | CI/CD policy control 
-             Code Signing
-             | 14 | Attackers target code in production | Containers scanned in production | Container Security Scan 
-Production   | 15 | Attackers target production conrfiguration | Runtime policy enforced | Container policy enforcement
-             |    |  |  | 
-             
+|       | Blueprint Node | Threat | Control | Critical Services 
+| :---: | :---:  | :--- | :--- | :---  
+| Code  | 1 | Attacker privilege escalation | Restrict admin access to CI/CD tools | Zero trust access  
+|       | 2 | Attacker submits malicious code | Accept only commits signed with unique identities | Code signing 
+|       | 3 | Attacker credential theft, escalation, or exploit to control CI/CD system | Automation access keys expires automatically | CI/CD policy control
+|       | 4 | Attacker submits malicious code via CI/CD system | Automation read-only access to source code repo | CI/CD policy control 
+| Collaboration | 5 | Vulnerability introduced from software supply chain | Only dependencies from trusted registries accepted | Enterprise artifact registry
+|             | 6 | Vulnerability introduced from software supply chain | Vulnerability analysts rejects threats | Static Code Analysis Software Component Analysis 
+|             | 7 | Attackers attempt to manipulate code directly | Artifact repository restrictions | Enterprise artifact registry (including Containers) 
+|             | 8 | Attackers successfully manipulate code directly | Validate approved artifacts | Code signing CI/CD policy control 
+|             | 9 | Attackers successfully manipulate code directly | Dual approval controls | Source code revision system 
+| Staging     | 10 | Attackers target to manipulate code on staging | Only signed code accepted for staging | Enterprise artifact registry (including Containers) <br />Code Signing
+|             | 11 | Attackers target to manipulate code moving to production | Only signed code accepted for production | Enterprise artifact registry (including Containers) <br /> Code Signing
+|            | 12 | Attackers target to manipulate code moving to production | Containers scanned before production | Container Security Scan
+|            | 13 | Attackers target to manipulate code moving to production | Only signed code accepted for production | CI/CD policy control <br />Code Signing
+|            | 14 | Attackers target code in production | Containers scanned in production | Container Security Scan 
+| Production | 15 | Attackers target production conrfiguration | Runtime policy enforced | Container policy enforcement
+|            |    |  |  | 
 
 
 
+<!-- Playground...             
 
 First Header | Second Header 
 ------------ | -------------
 content1     | Content2 
 content3     | Content4 
-
-
+-->
 
 
 # Appendix B
