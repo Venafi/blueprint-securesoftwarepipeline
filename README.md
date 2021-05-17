@@ -101,7 +101,8 @@ Both SAST and SCA may identify weaknesses in software that are not true vulnerab
 
 This control should be applied at various stages of the pipeline, including IDE-integrated checks, when committing to a branch, at time of pull request, and at a merge request to the main branch. Early identification of vulnerabilities can reduce remediation cost.
 
-**Additionally, this control would also need a defined and documented vulnerability exception management process to be in place.**
+> _Additionally, this control would also need a defined and documented vulnerability exception management process to be in place._
+
 > :skull: Most often the result of unexpected consequences, vulnerabilities are a reality of developer life. Attackers too may contribute vulnerabilities that go unseen and undetected and can proliferate through a software supply chain quickly. 
 
 #### Control-7: Artifacts are stored in a repository in dev, stage and production
@@ -159,3 +160,16 @@ Build environments should be defined in code with automated creation / teardown 
 
 > :skull: Attackers who gain access to build environments are able to bypass controls implemented earlier in the build pipeline. Ensuring build environments are themselves defined as code and live only for the duration of a build will prevent attackers persisting in build infrastructure.
  
+# Appendix A
+sdf
+
+First Header | Second Header 
+------------ | -------------
+content1     | Content2 
+content3     | Content4 
+
+
+
+# Appendix B
+
+# Appendix C
