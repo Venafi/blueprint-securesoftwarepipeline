@@ -145,29 +145,25 @@ Requiring artifacts to be signed in a repository throughout the process ensures 
 
 Just as applications need to be tested for vulnerabilities before being placed in production, so do the container images into which they are packaged for deployment. Container images potentially have open-source vulnerabilities as long as they contain open-source software, for instance web application servers, networking libraries, and databases. Additionally, containers may have configuration vulnerabilities that allow attackers to have more access than they should to the resources that containers manage. Container images can be tested with a container security tool in the pipeline.
 
-#### Control-12: Pull artifacts from internal registries only
-
->:exclamation: We agreed to replace this with a reference to Control 6
-
-#### Control-13: Validate artifact signatures and digests
+#### Control-12: Validate artifact signatures and digests
 
 As part of deploying artifacts from the internal registry, validating the signature of the artifact against the digest ensures that the artifact was not tampered with in the repository and that the artifact being deployed is the same that was tested.
 
 > :skull: 
 > Through credential theft, vulnerability exploit, targeted attack or more, attackers succeed in insert their malicious code into pipeline and repositories. Code should be consider suspect and malicious.
 
-#### Control-14: Scan deployed images in production
+#### Control-13: Scan deployed images in production
 
 It is always a good idea to validate pre-production controls in production. This helps to ensure that the controls prior were followed for all software in production.
 
 > :skull: 
 > At all times, attackers are attempting to infiltrate system and make modifications to code through any variety of means. Adversaries insert targeted attacks or common vulnerabilities to suit their needs unpredictable needs. It cannot be assumed that the adversary is in fact a member of your own team.
 
-#### Control-15: Validate Kubernetes resource manifests
+#### Control-14: Validate Kubernetes resource manifests
 
 The last line of defense is the container orchestration layer. Kubernetes is responsible for deploying the containers of the application into production, and if the resource manifests are tampered with may be tricked into deploying a container of the attacker’s choice. It is important to ensure that the Kubernetes resource manifests are controlled and validated just as the actual images are.
 
-#### Control-16: Ensure build environments are ephemeral and immutable
+#### Control-15: Ensure build environments are ephemeral and immutable
 
 Build environments should be defined in code with automated creation / teardown and a fresh environment created for every build. Build hosts should not be accessible via interactive login.
 
