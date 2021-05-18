@@ -1,22 +1,24 @@
 # Blueprint for building modern, secure software development pipelines
+
 _For engineers and security teams driving fast and secure software supply chains_
 
-This document was authored by Veracode and Venafi with the goal of defining a vendor-neutral map of standard controls. We welcome contributions to the standard. 
+This document was authored by Veracode and Venafi with the goal of defining a vendor-neutral map of standard controls. We welcome contributions to the standard.
 
 ## Audience + outcome
 
 This Blueprint has been created by engineers for engineering leaders, architects and product security engineers. The design of this Blueprint places a priority on speed and agility of modern software development that provides businesses with a competitive advantage while incorporating a security always mindset.
 
-We propose a standard set of controls to secure the software development pipeline for continuous integration and continuous deployment (CI/CD) against attack. The goal is to minimize the possibility of a supply chain attack such as the one trojanizing SolarWinds Orion software updates,the Codecov Bash Uploader attack or the even more recent Passwordstate password manager compromise, by ensuring that authentication and authorization is properly managed throughout the pipeline, the integrity of software artifacts are tested at appropriate stages, and controls are placed on third party and open source software incorporated into the software. 
+We propose a standard set of controls to secure the software development pipeline for continuous integration and continuous deployment (CI/CD) against attack. The goal is to minimize the possibility of a supply chain attack such as the one trojanizing SolarWinds Orion software updates,the Codecov Bash Uploader attack or the even more recent Passwordstate password manager compromise, by ensuring that authentication and authorization is properly managed throughout the pipeline, the integrity of software artifacts are tested at appropriate stages, and controls are placed on third party and open source software incorporated into the software.
 
 The outcome of adopting the Blueprint is delivery of assured software at lower risk of supply chain tampering, attack during development, and manipulation in staging and production. The Blueprint gives engineering teams an actionable architecture that security teams will get behind and support.
 
 ## Situation
-_Speed + agility_
+
+### Speed + agility
 
 Engineers are the competitive advantage. The speed and agility built on opensource, cloud native design, multi-cloud architectures, and CI/CD pipelines are the ingredients for success.
 
-_Attack on software development_
+### Attack on software development
 
 Attacks are changing. Attackers are developers who have grown up with an opensource, cloud native mindset. Most of the focus of security in the last few years has been on infrastructure and as everything has become software defined, attackers have moved to attack surfaces that are less secure and less well understood by traditional security teams. They are shifting left to target developers and supply chain to yield more successful outcomes, whether highly targeted or wide ranging in impact. Security teams and controls will therefore be forever playing catchup.
 
@@ -26,13 +28,13 @@ The Blueprint is designed to engineer out the attacker so developers and their a
 
 We base our approach on the following design philosophy:  
 
-  - _Least Privilege_ - grant only the access and permissions required to accomplish a job, and no more. 
+- _Least Privilege_ - grant only the access and permissions required to accomplish a job, and no more.
 
-  - _Immutability_ - Artifacts and infrastructure are not modified after deployment to an environment. If a change is required, it is done in the image or script in the development environment and then promoted through the higher environments. 
+- _Immutability_ - Artifacts and infrastructure are not modified after deployment to an environment. If a change is required, it is done in the image or script in the development environment and then promoted through the higher environments.
 
-  - _Everything as Code_ - Not only software artifacts, but infrastructure, security policies, and other parts of the pipeline are implemented as code and subject to the same controls as the software artifacts. 
+- _Everything as Code_ - Not only software artifacts, but infrastructure, security policies, and other parts of the pipeline are implemented as code and subject to the same controls as the software artifacts.
 
-  - _Traceability_ – All changes whether to infrastructure or business code is revision controlled. This principle works hand in hand with Everything as Code. 
+- _Traceability_ – All changes whether to infrastructure or business code is revision controlled. This principle works hand in hand with Everything as Code.
 
  The design is pragmatic. Security controls will not be implemented or will be routed around if they prove an impediment to the timely delivery of new software. The Blueprint is developer friendly and low friction that improves the quality and assurance of the software that runs the modern world.
 
@@ -48,7 +50,7 @@ The blueprint for engineered assured software is designed on 4 stages of softwar
 
 1. _Production_: software is run anywhere
 
-### Blueprint in action 
+### Blueprint in action
 
 The Blueprint is built to fit modern development pipelines where developers, pipelines, and execution can be anywhere in the world.
 
@@ -68,21 +70,21 @@ Both host and application-layer access to CI/CD tools should be protected with m
 Unsigned code commits are challenging if not impossible to trace and pose a risk to the integrity of the code base. Requiring commits to be signed with a developer GPG key helps to ensure nonrepudiation of commits and increases the burden on the attacker seeking to insert malicious code.
 
 > :skull: 
-> An easy win for attackers can be to infect developers’ machines or steal credentials that give access. Attackers can then manipulate code or inject new malicious code as they please. 
+> An easy win for attackers can be to infect developers’ machines or steal credentials that give access. Attackers can then manipulate code or inject new malicious code as they please.
 
 #### Control-3: Automation access keys expire automatically
 
 Ensuring that access keys used by automation periodically expire ensures a shorter window of attack should keys be compromised.
 
 > :skull: 
-> Automated build systems are a hacker’s dream: they are out of sight of humans and operate at machine speed. Attackers can either steal access keys or mint new ones through a series of attacks. These are especially hard to detect. 
+> Automated build systems are a hacker’s dream: they are out of sight of humans and operate at machine speed. Attackers can either steal access keys or mint new ones through a series of attacks. These are especially hard to detect.
 
-#### Control-4: Reduce automation access to read only.
+#### Control-4: Reduce automation access to read only
 
 CI systems should only have read access to source code repositories following the principle of least privilege access.
 
 > :skull: 
-> Automated build processes are a hacker’s dream: they are out of sight of humans and operate at machine speed. Attackers can bypass usual source code review process to make changes to the source code that may be hard to detect. 
+> Automated build processes are a hacker’s dream: they are out of sight of humans and operate at machine speed. Attackers can bypass usual source code review process to make changes to the source code that may be hard to detect.
 
 #### Control-5: Only dependencies from trusted registries can be used
 
@@ -93,23 +95,23 @@ The trusted repository can also ensure that security policies are enforced on de
 Teams should be aware of implicit runtime dependencies as well as explicit buildtime dependencies (see Control 14).
 
 > :skull: 
->  Attackers can quickly spread malicious code through dependencies.  Attackers may insert malicious code that is then incorporated the application’s manifest by stealing credentials en masse or sophisticated, targeted thefts.
+> Attackers can quickly spread malicious code through dependencies.  Attackers may insert malicious code that is then incorporated the application’s manifest by stealing credentials en masse or sophisticated, targeted thefts.
 > Hackers can also target mistakes and oversights through typo-squatting and dependency confusion. Adversaries go to great ends to publish packages under a trusted name or even with common typos so they are included in builds.
 > All of the stakes are exponentially raised when public repositories are used.  
 
 #### Control-6: Any critical or high severity vulnerability breaks the build
 
-Supply chain attacks may introduce code with vulnerabilities into the software pipeline. Using static application security testing (SAST) helps to identify serious security issues, including poor cryptographic practices, hard-coded credentials, and injection vulnerabilities. Performing SAST in the pipeline and failing the pipeline on the discovery of a critical or high severity finding helps to minimize the chance of introduction of deliberately insecure code. 
+Supply chain attacks may introduce code with vulnerabilities into the software pipeline. Using static application security testing (SAST) helps to identify serious security issues, including poor cryptographic practices, hard-coded credentials, and injection vulnerabilities. Performing SAST in the pipeline and failing the pipeline on the discovery of a critical or high severity finding helps to minimize the chance of introduction of deliberately insecure code.
 
 Likewise, software composition analysis (SCA) identifies software libraries with known vulnerabilities. The pipeline should fail if a library with a critical or high severity vulnerability is identified. Note that this control helps mitigate against a failure of Control-4.
 Both SAST and SCA may identify weaknesses in software that are not true vulnerabilities. Selecting tools that allow setting a “baseline” of acceptable findings is a pragmatic step in ensuring successful adoption of this control.
 
 This control should be applied at various stages of the pipeline, including IDE-integrated checks, when committing to a branch, at time of pull request, and at a merge request to the main branch. Early identification of vulnerabilities can reduce remediation cost.
 
-> _Additionally, this control would also need a defined and documented vulnerability exception management process to be in place._
+_Additionally, this control would also need a defined and documented vulnerability exception management process to be in place._
 
 > :skull: 
-> Most often the result of unexpected consequences, vulnerabilities are a reality of developer life. Attackers too may contribute vulnerabilities that go unseen and undetected and can proliferate through a software supply chain quickly. 
+> Most often the result of unexpected consequences, vulnerabilities are a reality of developer life. Attackers too may contribute vulnerabilities that go unseen and undetected and can proliferate through a software supply chain quickly.
 
 #### Control-7: Artifacts are stored in a repository in dev, stage and production
 
@@ -120,10 +122,10 @@ Artifacts should be promoted from repository to repository in accordance with th
 
 #### Control-8: Validate artifact digest
 
-Before an artifact is deployed in any environment its digest should be validated against the artifact in the repository to ensure that it has not been compromised. 
+Before an artifact is deployed in any environment its digest should be validated against the artifact in the repository to ensure that it has not been compromised.
 
 > :skull: 
-> At all times, attackers are attempting to infiltrate system and make modifications to code through any variety of means. Adversaries insert targeted attacks or common vulnerabilities to suit their needs unpredictable needs. 
+> At all times, attackers are attempting to infiltrate system and make modifications to code through any variety of means. Adversaries insert targeted attacks or common vulnerabilities to suit their needs unpredictable needs.
 
 #### Control-9: Pull request requires two reviewers (including one default reviewer) and passing build to be merge
 
@@ -172,9 +174,9 @@ Build environments should be defined in code with automated creation / teardown 
 > :skull: 
 > Attackers who gain access to build environments are able to bypass controls implemented earlier in the build pipeline. Ensuring build environments are themselves defined as code and live only for the duration of a build will prevent attackers persisting in build infrastructure.
  
-# Appendix A
+## Appendix A
 
-Intro..._state briefly what this appendix is for_
+This appendix summarizes the controls, threats protected against, and critical services involved.
 
 |       | Blueprint Node | Threat | Control | Critical Services 
 | :---: | :---:  | :--- | :--- | :---  
@@ -191,9 +193,9 @@ Intro..._state briefly what this appendix is for_
 |             | 11 | Attackers target to manipulate code moving to production | Only signed code accepted for production | Enterprise artifact registry (including Containers) <br /> Code Signing
 |            | 12 | Attackers target to manipulate code moving to production | Containers scanned before production | Container Security Scan
 |            | 13 | Attackers target to manipulate code moving to production | Only signed code accepted for production | CI/CD policy control <br />Code Signing
-|            | 14 | Attackers target code in production | Containers scanned in production | Container Security Scan 
+|            | 14 | Attackers target code in production | Containers scanned in production | Container Security Scan
 | Production | 15 | Attackers target production conrfiguration | Runtime policy enforced | Container policy enforcement
-|            |    |  |  | 
+|            |    |  |  |
 
 <!-- Playground...             
 
@@ -203,10 +205,10 @@ content1     | Content2
 content3     | Content4 
 -->
 
-# Appendix B
+## Appendix B
 
 Intro..._state briefly what this appendix is for_
 
-# Appendix C
+## Appendix C
 
 Intro..._state briefly what this appendix is for_
