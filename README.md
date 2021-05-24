@@ -1,5 +1,14 @@
 # Blueprint for building modern, secure software development pipelines
 
+![Venafi](Venafi_logo.png)
+[![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![Community Supported](https://img.shields.io/badge/Support%20Level-Community-brightgreen)
+_**This open source project is community-supported.** To report a problem or share an idea, use
+**[Issues](../../issues)**; and if you have a suggestion for fixing the issue, please include those details, too.
+In addition, use **[Pull Requests](../../pulls)** to contribute actual bug fixes or proposed enhancements.
+We welcome and appreciate all contributions. 
+<!-- DO WE WANT TO CREATE A SLACK CHANNEL as we did for venafi-integrations? e.g. " Got questions or want to discuss something with our team? **[Join us on Slack](https://join.slack.com/t/venafi-integrations/shared_invite/zt-i8fwc379-kDJlmzU8OiIQOJFSwiA~dg)** "  -->
+
 _For engineers and security teams driving fast and secure software supply chains_
 
 This document was authored by Veracode and Venafi with the goal of defining a vendor-neutral map of standard controls. We welcome contributions to the standard.
