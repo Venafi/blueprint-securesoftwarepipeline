@@ -191,7 +191,6 @@ This appendix summarizes the controls, threats protected against, and critical s
 |            | 13 | Attackers target to manipulate code moving to production | Only signed code accepted for production | CI/CD policy control <br />Code Signing
 |            | 14 | Attackers target code in production | Containers scanned in production | Container Security Scan
 | <td rowspan="1">Production</td> | 15 | Attackers target production conrfiguration | Runtime policy enforced | Container policy enforcement
-|            |    |  |  |
 
 ## Appendix B
 
