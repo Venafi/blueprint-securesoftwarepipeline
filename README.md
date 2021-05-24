@@ -219,8 +219,33 @@ content3     | Content4
 
 ## Appendix B
 
-Intro..._state briefly what this appendix is for_
+Here are the controls prioritized by _ease of implementation_ and by _level of risk_.
+
+Control | Ease of Implementation | Level of Risk
+:------------ | :-------------: | :--------------:
+Control-1: RESTRICT ADMINISTRATIVE ACCESS TO CI/CD TOOLS | High | High
+Control-2: ACCEPT ONLY COMMITS SIGNED WITH DEVELOPER GPG KEY | Low | Low 
+Control-3: AUTOMATION ACCESS KEYS EXPIRE AUTOMATICALLY | Medium | High
+Control-4: AUTOMATION REDUCE ACCESS TO READ ONLY | High | High
+Control-5: ONLY DEPENDENCIES FROM TRUSTED REGISTRIES CAN BE USED | Medium | High
+Control-6: ANY CRITICAL OR HIGH SEVERITY VULNERABILITY BREAKS THE BUILD | High | High
+Control-7: ARTIFACTS ARE STORED IN A REPOSITORY IN DEV, STAGE AND PRODUCTION | Medium | Medium
+Control-8: VALIDATE ARTIFACT DIGEST	| High | High
+Control-9: PULL REQUEST REQUIRES TWO REVIEWERS (INCLUDING ONE DEFAULT REVIEWER) AND PASSING BUILD TO BE MERGED | High | Medium
+Control-10: ARTIFACTS IN HIGHER REPOSITORIES ARE SIGNED | Low | Medium
+Control-11: AVAILABLE CONTAINER IMAGES DON’T HAVE ANY HIGH OR CRITICAL VULNERABILITIES | High | High
+Control-12: PULL ARTIFACTS FROM INTERNAL REGISTRIES ONLY | Low | High
+Control-13: VALIDATE ARTIFACT SIGNATURES AND DIGESTS | Medium | Medium
+Control-14: SCAN DEPLOYED IMAGES IN PRODUCTION | High | Medium
+Control-15: VALIDATE KUBERNETES RESOURCE MANIFESTS | Medium | Medium
 
 ## Appendix C
 
-Intro..._state briefly what this appendix is for_
+Here are a few blueprint controls with examples of specific attacks: 
+
+- Control-2: _Attacker submits malicious code_
+
+- Control-5: _Vulnerabilities introduced from supply chain_
+
+- Control-13: _Attackers target to manipulate code moving to production_
+
