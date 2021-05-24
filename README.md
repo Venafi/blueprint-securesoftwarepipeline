@@ -10,7 +10,8 @@ In addition, use **[Pull Requests](../../pulls)** to contribute actual bug fixes
 
 <!-- DO WE WANT TO CREATE A SLACK CHANNEL as we did for venafi-integrations? e.g. " Got questions or want to discuss something with our team? **[Join us on Slack](https://join.slack.com/t/venafi-integrations/shared_invite/zt-i8fwc379-kDJlmzU8OiIQOJFSwiA~dg)** "  -->
 
-_For engineers and security teams driving fast and secure software supply chains_
+## Who's this for? 
+This document is for engineers and security teams who are driving fast and secure software supply chains.
 
 This document was authored by Veracode and Venafi with the goal of defining a vendor-neutral map of standard controls. We welcome contributions to the standard.
 
