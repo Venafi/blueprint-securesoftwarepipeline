@@ -7,7 +7,6 @@ This document was authored by Veracode and Venafi with the goal of defining a ve
 >**EDITORIAL MILESTONES (remove on _Publish_)**
 >- [x] Convert and publish to private GitHub repo (17 May 2021)
 >- [ ] Final Draft (_## May 2021_)
->- [ ] Publish to Private (21 May 2021)
 >- [ ] Publish to Live (28 May 2021)
 
 ## Audience + outcome
