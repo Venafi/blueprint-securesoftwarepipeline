@@ -10,12 +10,14 @@ In addition, use **[Pull Requests](../../pulls)** to contribute actual bug fixes
 
 <!-- DO WE WANT TO CREATE A SLACK CHANNEL as we did for venafi-integrations? e.g. " Got questions or want to discuss something with our team? **[Join us on Slack](https://join.slack.com/t/venafi-integrations/shared_invite/zt-i8fwc379-kDJlmzU8OiIQOJFSwiA~dg)** "  -->
 
-## Who's this for? 
+## Who's this for?
+
 This document is for engineers and security teams who are driving fast and secure software supply chains.
 
 This document was authored by Veracode and Venafi with the goal of defining a vendor-neutral map of standard controls. We welcome contributions to the standard.
 
 >**EDITORIAL MILESTONES (remove on _Publish_)**
+
 >- [x] Convert and publish to private GitHub repo (17 May 2021)
 >- [ ] Final Draft (26 May 2021)
 >- [ ] Copy edit, Derek (27 May 2021)
@@ -233,11 +235,10 @@ Control-15: VALIDATE KUBERNETES RESOURCE MANIFESTS | Medium | Medium
 
 ## Appendix C
 
-Here are a few blueprint controls with examples of specific attacks: 
+Here are a few blueprint controls with examples of specific attacks:
 
 - Control-2: _Attacker submits malicious code_
 
 - Control-5: _Vulnerabilities introduced from supply chain_
 
 - Control-13: _Attackers target to manipulate code moving to production_
-
