@@ -1,8 +1,25 @@
 # Blueprint for building modern, secure software development pipelines
 
-_For engineers and security teams driving fast and secure software supply chains_
+![Venafi](Venafi_logo.png)
+[![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![Community Supported](https://img.shields.io/badge/Support%20Level-Community-brightgreen)
+
+_**This open source project is community-supported.** To report a problem or share an idea, use
+**[Issues](../../issues)**; and if you have a suggestion for fixing the issue, please include those details, too.
+In addition, use **[Pull Requests](../../pulls)** to contribute actual bug fixes or proposed enhancements. We welcome and appreciate all contributions._
+
+<!-- DO WE WANT TO CREATE A SLACK CHANNEL as we did for venafi-integrations? e.g. " Got questions or want to discuss something with our team? **[Join us on Slack](https://join.slack.com/t/venafi-integrations/shared_invite/zt-i8fwc379-kDJlmzU8OiIQOJFSwiA~dg)** "  -->
+
+## Who's this for? 
+This document is for engineers and security teams who are driving fast and secure software supply chains.
 
 This document was authored by Veracode and Venafi with the goal of defining a vendor-neutral map of standard controls. We welcome contributions to the standard.
+
+>**EDITORIAL MILESTONES (remove on _Publish_)**
+>- [x] Convert and publish to private GitHub repo (17 May 2021)
+>- [ ] Final Draft (26 May 2021)
+>- [ ] Copy edit, Derek (27 May 2021)
+>- [ ] Publish to Live (28 May 2021)
 
 ## Audience + outcome
 
@@ -194,8 +211,33 @@ This appendix summarizes the controls, threats protected against, and critical s
 
 ## Appendix B
 
-Intro..._state briefly what this appendix is for_
+Here are the controls prioritized by _ease of implementation_ and by _level of risk_.
+
+Control | Ease of Implementation | Level of Risk
+:------------ | :-------------: | :--------------:
+Control-1: RESTRICT ADMINISTRATIVE ACCESS TO CI/CD TOOLS | High | High
+Control-2: ACCEPT ONLY COMMITS SIGNED WITH DEVELOPER GPG KEY | Low | Low 
+Control-3: AUTOMATION ACCESS KEYS EXPIRE AUTOMATICALLY | Medium | High
+Control-4: AUTOMATION REDUCE ACCESS TO READ ONLY | High | High
+Control-5: ONLY DEPENDENCIES FROM TRUSTED REGISTRIES CAN BE USED | Medium | High
+Control-6: ANY CRITICAL OR HIGH SEVERITY VULNERABILITY BREAKS THE BUILD | High | High
+Control-7: ARTIFACTS ARE STORED IN A REPOSITORY IN DEV, STAGE AND PRODUCTION | Medium | Medium
+Control-8: VALIDATE ARTIFACT DIGEST	| High | High
+Control-9: PULL REQUEST REQUIRES TWO REVIEWERS (INCLUDING ONE DEFAULT REVIEWER) AND PASSING BUILD TO BE MERGED | High | Medium
+Control-10: ARTIFACTS IN HIGHER REPOSITORIES ARE SIGNED | Low | Medium
+Control-11: AVAILABLE CONTAINER IMAGES DON’T HAVE ANY HIGH OR CRITICAL VULNERABILITIES | High | High
+Control-12: PULL ARTIFACTS FROM INTERNAL REGISTRIES ONLY | Low | High
+Control-13: VALIDATE ARTIFACT SIGNATURES AND DIGESTS | Medium | Medium
+Control-14: SCAN DEPLOYED IMAGES IN PRODUCTION | High | Medium
+Control-15: VALIDATE KUBERNETES RESOURCE MANIFESTS | Medium | Medium
 
 ## Appendix C
 
-Intro..._state briefly what this appendix is for_
+Here are a few blueprint controls with examples of specific attacks: 
+
+- Control-2: _Attacker submits malicious code_
+
+- Control-5: _Vulnerabilities introduced from supply chain_
+
+- Control-13: _Attackers target to manipulate code moving to production_
+
