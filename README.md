@@ -13,7 +13,7 @@ In addition, use **[Pull Requests](../../pulls)** to contribute actual bug fixes
 
 This document is for engineers and security teams who are driving fast and secure software supply chains.
 
-This document was authored by Veracode and Venafi with the goal of defining a vendor-neutral map of standard controls. We welcome contributions to the standard.
+(Veracode)[https://www.veracode.com/] and (Venafi)[https://www.venafi.com/] teamed up to define a vendor-neutral map of standard controls for securing software supply chains. We welcome contributions from other vendors to help us further define the standard.
 
 <!-- >**EDITORIAL MILESTONES (remove on _Publish_)**
 
