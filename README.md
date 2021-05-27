@@ -13,7 +13,7 @@ This document is for engineers and security teams who are driving fast and secur
 
 This document was authored by [Veracode](https://www.veracode.com/) and [Venafi](https://www.venafi.com/) with contributions and support from [Sophos](https://www.sophos.com/en-us.aspx) and [Cloudbees](https://www.cloudbees.com/). Our collective intent is to define a vendor-neutral map of standard controls. These diverse controls drammatically reduce risk and align with agile, high performance software developlment pipelines.  
 
-We encouraged your contributions to the blueprint and project, including examples that implement any of the Controls. <!-- link down to section from here -->
+We encourage your contributions to the blueprint and project, including examples that implement any of the Controls. <!-- link down to section from here -->
 
 <!-- >**EDITORIAL MILESTONES (remove on _Publish_)**
 >- [x] Convert and publish to private GitHub repo (17 May 2021)
