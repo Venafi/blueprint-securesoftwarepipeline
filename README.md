@@ -15,13 +15,13 @@ This document is for engineers and security teams who are driving fast and secur
 
 This document was authored by Veracode and Venafi with the goal of defining a vendor-neutral map of standard controls. We welcome contributions to the standard.
 
->**EDITORIAL MILESTONES (remove on _Publish_)**
+<!-- >**EDITORIAL MILESTONES (remove on _Publish_)**
 
 >- [x] Convert and publish to private GitHub repo (17 May 2021)
 >- [ ] Final Draft (26 May 2021)
 >- [ ] Copy edit, Derek (27 May 2021)
->- [ ] Publish to Live (28 May 2021)
-
+>- [ ] Publish to Live (28 May 2021) 
+-->
 ## Audience + outcome
 
 This Blueprint has been created by engineers for engineering leaders, architects and product security engineers. The design of this Blueprint places a priority on speed and agility of modern software development that provides businesses with a competitive advantage while incorporating a security always mindset.
