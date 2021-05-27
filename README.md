@@ -1,6 +1,5 @@
 # Blueprint for building modern, secure software development pipelines
 
-![Venafi](Venafi_logo.png)
 [![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 ![Community Supported](https://img.shields.io/badge/Support%20Level-Community-brightgreen)
 
@@ -10,17 +9,18 @@ In addition, use **[Pull Requests](../../pulls)** to contribute actual bug fixes
 
 <!-- DO WE WANT TO CREATE A SLACK CHANNEL as we did for venafi-integrations? e.g. " Got questions or want to discuss something with our team? **[Join us on Slack](https://join.slack.com/t/venafi-integrations/shared_invite/zt-i8fwc379-kDJlmzU8OiIQOJFSwiA~dg)** "  -->
 
-## Who's this for? 
+## Who's this for?
+
 This document is for engineers and security teams who are driving fast and secure software supply chains.
 
-This document was authored by Veracode and Venafi with contributions and support of Sophos and Cloudbees. The intent of authors and contributors is to define a vendor-neutral map of standard controls. These diverse controls drammatically reduce risk and align with agile, high performance software developlment pipelines.  Contributions are encouraged to the blueprint and project such as examples of implementation of controls.
+This document was authored by (Veracode)[https://www.veracode.com/] and (Venafi)[https://www.venafi.com/] with contributions and support of (Sophos)[https://www.sophos.com/en-us.aspx] and (Cloudbees)[https://www.cloudbees.com/]. Our collective intent is to define a vendor-neutral map of standard controls. These diverse controls drammatically reduce risk and align with agile, high performance software developlment pipelines.  Contributions are encouraged to the blueprint and project such as examples of implementation of controls.
 
->**EDITORIAL MILESTONES (remove on _Publish_)**
+<!-- >**EDITORIAL MILESTONES (remove on _Publish_)**
 >- [x] Convert and publish to private GitHub repo (17 May 2021)
->- [ ] Final Draft (26 May 2021)
+>- [x] Final Draft (26 May 2021)
 >- [ ] Copy edit, Derek (27 May 2021)
->- [ ] Publish to Live (28 May 2021)
-
+>- [ ] Publish to Live (28 May 2021) 
+-->
 ## Audience + outcome
 
 This Blueprint has been created by engineers for engineering leaders, architects and product security engineers. The design of this Blueprint places a priority on speed and agility of modern software development that provides businesses with a competitive advantage while incorporating a security always mindset.
@@ -186,37 +186,28 @@ Build environments should be defined in code with automated creation / teardown 
 
 > :skull: 
 > Attackers who gain access to build environments are able to bypass controls implemented earlier in the build pipeline. Ensuring build environments are themselves defined as code and live only for the duration of a build will prevent attackers persisting in build infrastructure.
- 
-## Appendix A
+
+## Appendix A: Blueprint Reference - threats, controls, and critical services
 
 This appendix summarizes the controls, threats protected against, and critical services involved.
 
-|       | Blueprint Node | Threat | Control | Critical Services 
-| :---: | :---:  | :--- | :--- | :---  
-| Code  | 1 | Attacker privilege escalation | Restrict admin access to CI/CD tools | Zero trust access  
-|       | 2 | Attacker submits malicious code | Accept only commits signed with unique identities | Code signing 
-|       | 3 | Attacker credential theft, escalation, or exploit to control CI/CD system | Automation access keys expires automatically | CI/CD policy control
-|       | 4 | Attacker submits malicious code via CI/CD system | Automation read-only access to source code repo | CI/CD policy control 
-| Collaboration | 5 | Vulnerability introduced from software supply chain | Only dependencies from trusted registries accepted | Enterprise artifact registry
-|             | 6 | Vulnerability introduced from software supply chain | Vulnerability analysts rejects threats | Static Code Analysis Software Component Analysis 
-|             | 7 | Attackers attempt to manipulate code directly | Artifact repository restrictions | Enterprise artifact registry (including Containers) 
-|             | 8 | Attackers successfully manipulate code directly | Validate approved artifacts | Code signing CI/CD policy control 
-|             | 9 | Attackers successfully manipulate code directly | Dual approval controls | Source code revision system 
-| Staging     | 10 | Attackers target to manipulate code on staging | Only signed code accepted for staging | Enterprise artifact registry (including Containers) <br />Code Signing
+|  |     | Blueprint Node | Threat | Control | Critical Services
+| :---   | :---    |:---  | :---   | :---    | :---
+| <td rowspan="4">Code</td>| 1 | Attacker privilege escalation | Restrict admin access to CI/CD tools | Zero trust access  
+| | 2 | Attacker submits malicious code | Accept only commits signed with unique identities | Code signing
+| | 3 | Attacker credential theft, escalation, or exploit to control CI/CD system | Automation access keys expires automatically | CI/CD policy control
+| | 4 | Attacker submits malicious code via CI/CD system | Automation read-only access to source code repo | CI/CD policy control
+| <td rowspan="5">Collaboration</td> | 5 | Vulnerability introduced from software supply chain | Only dependencies from trusted registries accepted | Enterprise artifact registry
+|             | 6 | Vulnerability introduced from software supply chain | Vulnerability analysts rejects threats | Static Code Analysis Software Component Analysis
+|             | 7 | Attackers attempt to manipulate code directly | Artifact repository restrictions | Enterprise artifact registry (including Containers)
+|             | 8 | Attackers successfully manipulate code directly | Validate approved artifacts | Code signing CI/CD policy control
+|             | 9 | Attackers successfully manipulate code directly | Dual approval controls | Source code revision system
+| <td rowspan="5">Staging</td>     | 10 | Attackers target to manipulate code on staging | Only signed code accepted for staging | Enterprise artifact registry (including Containers) <br />Code Signing
 |             | 11 | Attackers target to manipulate code moving to production | Only signed code accepted for production | Enterprise artifact registry (including Containers) <br /> Code Signing
 |            | 12 | Attackers target to manipulate code moving to production | Containers scanned before production | Container Security Scan
 |            | 13 | Attackers target to manipulate code moving to production | Only signed code accepted for production | CI/CD policy control <br />Code Signing
 |            | 14 | Attackers target code in production | Containers scanned in production | Container Security Scan
-| Production | 15 | Attackers target production conrfiguration | Runtime policy enforced | Container policy enforcement
-|            |    |  |  |
-
-<!-- Playground...             
-
-First Header | Second Header 
------------- | -------------
-content1     | Content2 
-content3     | Content4 
--->
+| <td rowspan="1">Production</td> | 15 | Attackers target production configuration | Runtime policy enforced | Container policy enforcement
 
 ## Appendix B
 
@@ -242,11 +233,10 @@ Control-15: VALIDATE KUBERNETES RESOURCE MANIFESTS | Medium | Medium
 
 ## Appendix C
 
-Here are a few blueprint controls with examples of specific attacks: 
+Here are a few blueprint controls with examples of specific attacks:
 
 - Control-2: _Attacker submits malicious code_
 
 - Control-5: _Vulnerabilities introduced from supply chain_
 
 - Control-13: _Attackers target to manipulate code moving to production_
-
