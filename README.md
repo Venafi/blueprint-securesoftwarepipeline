@@ -7,13 +7,13 @@ _**This open source project is community-supported.** To report a problem or sha
 **[Issues](../../issues)**; and if you have a suggestion for fixing the issue, please include those details, too.
 In addition, use **[Pull Requests](../../pulls)** to contribute actual bug fixes or proposed enhancements. We welcome and appreciate all contributions._
 
-<!-- DO WE WANT TO CREATE A SLACK CHANNEL as we did for venafi-integrations? e.g. " Got questions or want to discuss something with our team? **[Join us on Slack](https://join.slack.com/t/venafi-integrations/shared_invite/zt-i8fwc379-kDJlmzU8OiIQOJFSwiA~dg)** "  -->
-
 ## Who's this for?
 
 This document is for engineers and security teams who are driving fast and secure software supply chains.
 
-This document was authored by (Veracode)[https://www.veracode.com/] and (Venafi)[https://www.venafi.com/] with contributions and support of (Sophos)[https://www.sophos.com/en-us.aspx] and (Cloudbees)[https://www.cloudbees.com/]. Our collective intent is to define a vendor-neutral map of standard controls. These diverse controls drammatically reduce risk and align with agile, high performance software developlment pipelines.  Contributions are encouraged to the blueprint and project such as examples of implementation of controls.
+This document was authored by [Veracode](https://www.veracode.com/) and [Venafi](https://www.venafi.com/) with contributions and support of (Sophos)[https://www.sophos.com/en-us.aspx] and [Cloudbees](https://www.cloudbees.com/). Our collective intent is to define a vendor-neutral map of standard controls. These diverse controls drammatically reduce risk and align with agile, high performance software developlment pipelines.  
+
+We encouraged your contributions to the blueprint and project, including examples that implement any of the Controls. <!-- link down to section from here -->
 
 <!-- >**EDITORIAL MILESTONES (remove on _Publish_)**
 >- [x] Convert and publish to private GitHub repo (17 May 2021)
