@@ -13,12 +13,11 @@ In addition, use **[Pull Requests](../../pulls)** to contribute actual bug fixes
 
 This document is for engineers and security teams who are driving fast and secure software supply chains.
 
-(Veracode)[https://www.veracode.com/] and (Venafi)[https://www.venafi.com/] teamed up to define a vendor-neutral map of standard controls for securing software supply chains. We welcome contributions from other vendors to help us further define the standard.
+This document was authored by (Veracode)[https://www.veracode.com/] and (Venafi)[https://www.venafi.com/] with contributions and support of (Sophos)[https://www.sophos.com/en-us.aspx] and (Cloudbees)[https://www.cloudbees.com/]. Our collective intent is to define a vendor-neutral map of standard controls. These diverse controls drammatically reduce risk and align with agile, high performance software developlment pipelines.  Contributions are encouraged to the blueprint and project such as examples of implementation of controls.
 
 <!-- >**EDITORIAL MILESTONES (remove on _Publish_)**
-
 >- [x] Convert and publish to private GitHub repo (17 May 2021)
->- [ ] Final Draft (26 May 2021)
+>- [x] Final Draft (26 May 2021)
 >- [ ] Copy edit, Derek (27 May 2021)
 >- [ ] Publish to Live (28 May 2021) 
 -->
