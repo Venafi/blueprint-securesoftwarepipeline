@@ -21,6 +21,7 @@ We encourage your contributions to the blueprint and project, including examples
 >- [ ] Copy edit, Derek (27 May 2021)
 >- [ ] Publish to Live (28 May 2021) 
 -->
+
 ## Audience + outcome
 
 This Blueprint has been created by engineers for engineering leaders, architects and product security engineers. The design of this Blueprint places a priority on speed and agility of modern software development that provides businesses with a competitive advantage while incorporating a security always mindset.
@@ -105,7 +106,7 @@ CI systems should only have read access to source code repositories following th
 
 #### Control-5: Only dependencies from trusted registries can be used
 
-Modern software dependency managers, including npm, maven , Nuget, pip, and others, rely on declaring the dependencies required for the application and then fetching them at build time. By configuring the dependency manager to only allow connections to an authorized list of registries, these attacks can be blunted by keeping malicious packages in the public registries from entering the pipeline.
+Modern software dependency managers, including `npm`, `maven`, `Nuget`, `pip`, and others, rely on declaring the dependencies required for the application and then fetching them at build time. By configuring the dependency manager to only allow connections to an authorized list of registries, these attacks can be blunted by keeping malicious packages in the public registries from entering the pipeline.
 
 The trusted repository can also ensure that security policies are enforced on dependencies, for example ensuring that only dependencies that are free of critical or high vulnerabilities can be used. Implementing a control at the repository that throws an error when a component with known vulnerabilities is requested helps to reduce the chances of an attack against a known vulnerability downstream.
 
@@ -121,6 +122,7 @@ Teams should be aware of implicit runtime dependencies as well as explicit build
 Supply chain attacks may introduce code with vulnerabilities into the software pipeline. Using static application security testing (SAST) helps to identify serious security issues, including poor cryptographic practices, hard-coded credentials, and injection vulnerabilities. Performing SAST in the pipeline and failing the pipeline on the discovery of a critical or high severity finding helps to minimize the chance of introduction of deliberately insecure code.
 
 Likewise, software composition analysis (SCA) identifies software libraries with known vulnerabilities. The pipeline should fail if a library with a critical or high severity vulnerability is identified. Note that this control helps mitigate against a failure of Control-4.
+
 Both SAST and SCA may identify weaknesses in software that are not true vulnerabilities. Selecting tools that allow setting a “baseline” of acceptable findings is a pragmatic step in ensuring successful adoption of this control.
 
 This control should be applied at various stages of the pipeline, including IDE-integrated checks, when committing to a branch, at time of pull request, and at a merge request to the main branch. Early identification of vulnerabilities can reduce remediation cost.
@@ -135,6 +137,7 @@ _Additionally, this control would also need a defined and documented vulnerabili
 All artifacts should be stored in a repository at each stage of the build pipeline so that there is clear traceability between the test results and the actual artifact tested. This control also helps to enforce the immutability of the artifacts, such that we can compare artifacts in the development, staging and production repositories and ensure that we maintain a chain of control.
 
 Repositories for dev, stage and production should be segregated so that role-based access control can ensure least privilege at each stage, and so that more stringent policies (e.g. artifact signing) can be enforced in higher environments.
+
 Artifacts should be promoted from repository to repository in accordance with the principle of immutability.
 
 #### Control-8: Validate artifact digest
@@ -216,13 +219,13 @@ Here are the controls prioritized by _ease of implementation_ and by _level of r
 Control | Ease of Implementation | Level of Risk
 :------------ | :-------------: | :--------------:
 Control-1: RESTRICT ADMINISTRATIVE ACCESS TO CI/CD TOOLS | High | High
-Control-2: ACCEPT ONLY COMMITS SIGNED WITH DEVELOPER GPG KEY | Low | Low 
+Control-2: ACCEPT ONLY COMMITS SIGNED WITH DEVELOPER GPG KEY | Low | Low
 Control-3: AUTOMATION ACCESS KEYS EXPIRE AUTOMATICALLY | Medium | High
 Control-4: AUTOMATION REDUCE ACCESS TO READ ONLY | High | High
 Control-5: ONLY DEPENDENCIES FROM TRUSTED REGISTRIES CAN BE USED | Medium | High
 Control-6: ANY CRITICAL OR HIGH SEVERITY VULNERABILITY BREAKS THE BUILD | High | High
 Control-7: ARTIFACTS ARE STORED IN A REPOSITORY IN DEV, STAGE AND PRODUCTION | Medium | Medium
-Control-8: VALIDATE ARTIFACT DIGEST	| High | High
+Control-8: VALIDATE ARTIFACT DIGEST | High | High
 Control-9: PULL REQUEST REQUIRES TWO REVIEWERS (INCLUDING ONE DEFAULT REVIEWER) AND PASSING BUILD TO BE MERGED | High | Medium
 Control-10: ARTIFACTS IN HIGHER REPOSITORIES ARE SIGNED | Low | Medium
 Control-11: AVAILABLE CONTAINER IMAGES DON’T HAVE ANY HIGH OR CRITICAL VULNERABILITIES | High | High
