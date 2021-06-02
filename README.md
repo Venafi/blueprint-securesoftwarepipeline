@@ -226,21 +226,21 @@ Here are the controls prioritized by _ease of implementation_ and by _level of r
 
 Control | Ease of Implementation | Level of Risk
 :------------ | :-------------: | :--------------:
-Control-1: RESTRICT ADMINISTRATIVE ACCESS TO CI/CD TOOLS | High | High
-Control-2: ACCEPT ONLY COMMITS SIGNED WITH DEVELOPER GPG KEY | Low | Low
-Control-3: AUTOMATION ACCESS KEYS EXPIRE AUTOMATICALLY | Medium | High
-Control-4: AUTOMATION REDUCE ACCESS TO READ ONLY | High | High
-Control-5: ONLY DEPENDENCIES FROM TRUSTED REGISTRIES CAN BE USED | Medium | High
-Control-6: ANY CRITICAL OR HIGH SEVERITY VULNERABILITY BREAKS THE BUILD | High | High
-Control-7: ARTIFACTS ARE STORED IN A REPOSITORY IN DEV, STAGE AND PRODUCTION | Medium | Medium
-Control-8: VALIDATE ARTIFACT DIGEST | High | High
-Control-9: PULL REQUEST REQUIRES TWO REVIEWERS (INCLUDING ONE DEFAULT REVIEWER) AND PASSING BUILD TO BE MERGED | High | Medium
-Control-10: ARTIFACTS IN HIGHER REPOSITORIES ARE SIGNED | Low | Medium
-Control-11: AVAILABLE CONTAINER IMAGES DON’T HAVE ANY HIGH OR CRITICAL VULNERABILITIES | High | High
-Control-12: PULL ARTIFACTS FROM INTERNAL REGISTRIES ONLY | Low | High
-Control-13: VALIDATE ARTIFACT SIGNATURES AND DIGESTS | Medium | Medium
-Control-14: SCAN DEPLOYED IMAGES IN PRODUCTION | High | Medium
-Control-15: VALIDATE KUBERNETES RESOURCE MANIFESTS | Medium | Medium
+Control-1: Restrict administrative access to CI/CD tools | High | High
+Control-2: Only accept commits signed with a developer GPG key | Low | Low
+Control-3: Automation access keys expire automatically | Medium | High
+Control-4: Reduce automation access to read-only | High | High
+Control-5: Only dependencies from trusted registries can be used | Medium | High
+Control-6: Any critical or high severity vulnerability breaks the build | High | High
+Control-7: Artifacts are stored in a repository in development, stage and production | Medium | Medium
+Control-8: Validate artifact digest | High | High
+Control-9: Pull-requests require two reviewers (including one default reviewer) and a passing build to be merged | High | Medium
+Control-10: Artifacts in higher repositories are signed | Low | Medium
+Control-11: Available container images don’t have any high or critical vulnerabilities | High | High
+Control-12: Validate artifact signatures and digests | Medium | High
+Control-13: Scan deployed images in production | High | Medium
+Control-14: Validate Kubernetes resource manifests | High | Medium
+Control-15: Ensure build environments are ephemeral and immutable | Low | Medium
 
 ## Appendix C
 
