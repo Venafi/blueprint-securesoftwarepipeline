@@ -15,20 +15,13 @@ This document was authored by [Veracode](https://www.veracode.com/) and [Venafi]
 
 We encourage your contributions to the Blueprint and project, including examples that implement any of the Controls. <!-- link down to section from here -->
 
-<!-- >**EDITORIAL MILESTONES (remove on _Publish_)**
->- [x] Convert and publish to private GitHub repo (17 May 2021)
->- [x] Final Draft (26 May 2021)
->- [x] Copy edit, Derek (27 May 2021)
->- [ ] Publish to Live (28 May 2021) 
--->
-
 ## Audience + outcome
 
 This Blueprint has been created by engineers for engineering leaders, architects and product security engineers. The design of this Blueprint places a priority on the _speed and agility of modern software development_, providing businesses with a competitive advantage while incorporating a _security-always_ mindset.
 
 We propose a standard set of _controls_ to secure software development pipelines for continuous integration and continuous deployment (CI/CD) against attack. Our goal? Minimize the possibility supply chain attacks. As examples, consider the attack that's trojanizing SolarWinds Orion software updates; or the Codecov Bash Uploader attack; or the more recent Passwordstate password manager compromise. 
 
-We can achieve a more secure pipleine by ensuring that
+We can achieve a more secure pipeline by ensuring that
 - authentication and authorization are properly managed throughout the pipeline
 - the integrity of software artifacts are tested at appropriate stages
 - controls are placed on third-party and open-source software, and incorporated into the software
@@ -222,25 +215,25 @@ This appendix summarizes the controls, threats they protect against, and the cri
 
 ## Appendix B
 
-Here are the controls prioritized by _ease of implementation_ and by _level of risk_.
+Here are the controls prioritized by _complexity of implementation_ and by _level of risk_.
 
-Control | Ease of Implementation | Level of Risk
+Control | Complexity of Implementation | Level of Risk
 :------------ | :-------------: | :--------------:
-Control-1: Restrict administrative access to CI/CD tools | High | High
-Control-2: Only accept commits signed with a developer GPG key | Low | Low
+Control-1: Restrict administrative access to CI/CD tools | Low | High
+Control-2: Only accept commits signed with a developer GPG key | Medium | Low
 Control-3: Automation access keys expire automatically | Medium | High
-Control-4: Reduce automation access to read-only | High | High
+Control-4: Reduce automation access to read-only | Medium | High
 Control-5: Only dependencies from trusted registries can be used | Medium | High
-Control-6: Any critical or high severity vulnerability breaks the build | High | High
+Control-6: Any critical or high severity vulnerability breaks the build | Low | High
 Control-7: Artifacts are stored in a repository in development, stage and production | Medium | Medium
-Control-8: Validate artifact digest | High | High
-Control-9: Pull-requests require two reviewers (including one default reviewer) and a passing build to be merged | High | Medium
-Control-10: Artifacts in higher repositories are signed | Low | Medium
-Control-11: Available container images don’t have any high or critical vulnerabilities | High | High
+Control-8: Validate artifact digest | Low | High
+Control-9: Pull-requests require two reviewers (including one default reviewer) and a passing build to be merged | Low | Medium
+Control-10: Artifacts in higher repositories are signed | High | Medium
+Control-11: Available container images don’t have any high or critical vulnerabilities | Low | High
 Control-12: Validate artifact signatures and digests | Medium | High
-Control-13: Scan deployed images in production | High | Medium
-Control-14: Validate Kubernetes resource manifests | High | Medium
-Control-15: Ensure build environments are ephemeral and immutable | Low | Medium
+Control-13: Scan deployed images in production | Low | Medium
+Control-14: Validate Kubernetes resource manifests | Low | Medium
+Control-15: Ensure build environments are ephemeral and immutable | High | Medium
 
 ## Appendix C
 
